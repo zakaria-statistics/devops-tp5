@@ -4,7 +4,11 @@ pipeline {
       registryCredential = 'v1'
       dockerImage = ''
   }
-  agent any
+  agent { 
+        node {
+            label 'docker-agent-alpine'
+            }
+      }
   stages {
     stage('Cloning Git') {
       steps {
